@@ -52,9 +52,7 @@ button:hover { background:#ff5c8a; } button:active { transform: scale(0.98); }
 .side-by-side { width:100%; display:flex; justify-content:center; align-items:center; gap:clamp(12px,3vw,30px); flex-wrap:wrap; }
 .side-by-side img { max-width:45%; max-height:50vh; margin:0; }
 @media(max-width:600px){ img{max-height:40vh;} .side-by-side img{max-width:90%;} }
-
 #slide3 p { font-size: clamp(0.9rem,2.2vw,1.4rem); }
-
 /* Hearts rain */
 .hearts { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:9999; display:none; }
 .heart { position:absolute; color:red; font-size:6vw; animation:fall 4s linear forwards; user-select:none; }
@@ -131,8 +129,7 @@ button:hover { background:#ff5c8a; } button:active { transform: scale(0.98); }
     <h1>WILL YOU BE MY Boyfriend ❤️?</h1>
     <div class="side-by-side">
       <img src="https://i.pinimg.com/originals/d8/b9/71/d8b97168488fdb3eb9533da493c8fa95.gif" alt="Final Gif">
-      <img src="https://i.postimg.cc/YqnHHqJ2/IMG-20250811-WA0042.jpg" alt="Pic Between GIFs"
-           style="max-width:20%; max-height:50vh; object-fit:contain; border-radius:15px;">
+      <img src="https://i.postimg.cc/YqnHHqJ2/IMG-20250811-WA0042.jpg" alt="Pic Between GIFs" style="max-width:20%; max-height:50vh; object-fit:contain; border-radius:15px;">
       <img src="https://media.tenor.com/Je68nyCU_j8AAAAj/bubu-dudu-bubu-dudu-love.gif" alt="Bubu Dudu Love GIF">
     </div>
     <div>
@@ -163,47 +160,13 @@ document.getElementById("playSongBtn").addEventListener("click", ()=>{
   document.getElementById("okBtn").style.display="inline-block";
 });
 
-function heartsPage(){
-  document.getElementById("slide3").innerHTML = `
-  <div class="content">
-    <h1>Oye Jaan sunn na</h1>
-    <p>❤️</p>
-    <button onclick="nextSlide(4)">Hanji kachua 🐢..Bolo</button>
-  </div>`;
-}
-
+function heartsPage(){ nextSlide(4); }
 function sorryLine(){ nextSlide(4); }
-function bhagOption(){
-  document.getElementById("slide4").innerHTML = `
-  <div class="content">
-    <h1>Bhaag Be!! 😝</h1>
-    <button onclick="nextSlide(5)">Sorry I love you jaan 😝🤍</button>
-  </div>`;
-}
+function bhagOption(){ nextSlide(5); }
 
 function yesLine(){
   alert("I KNEW IT!! 😎❤️");
-  document.getElementById("slide5").innerHTML=`
-  <div class="content">
-    <img src="https://i.postimg.cc/FFxY4NP7/image.jpg" alt="Couple Pic">
-    <p>MY WISH IS — I want us to be more than this.<br>Will you be mine? ❤️</p>
-    <div>
-      <button onclick="nextSlide(6)">Hanji Jaan 🤍</button>
-      <button onclick="extraPage()">Na patane mei aur mehenat lagega</button>
-    </div>
-  </div>`;
-}
-
-// Extra Page logic
-function extraPage(){
-  document.getElementById("slide5").innerHTML=`
-  <div class="content">
-    <img src="https://i.postimg.cc/wvjjxs4M/IMG-20250610-WA0127.jpg" alt="Couple Pic">
-    <div>
-      <button onclick="nextSlide(6)">Ok mann gaya</button>
-      <button onclick="nextSlide(6)">Paglait mei innocent hun..mann gaya tha pehele hee 😁😗</button>
-    </div>
-  </div>`;
+  nextSlide(6);
 }
 
 // Heart animation
@@ -224,7 +187,6 @@ function startHearts(){
   heartInterval=setInterval(createHeart,400);
 }
 
-// Final Love button
 function finalLove(){
   startHearts();
   const c=document.querySelector('#slide6 .content');
@@ -232,7 +194,7 @@ function finalLove(){
   setTimeout(()=>{alert("YAYYYY! Love you forever! ❤️");},3000);
 }
 
-// Desktop dodge hover only
+// Desktop dodge hover only, no alerts
 if(window.innerWidth>768){
   document.addEventListener("mousemove", e=>{
     document.querySelectorAll(".dodge").forEach(btn=>{
